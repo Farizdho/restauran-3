@@ -1,16 +1,23 @@
 import RestaurantDbSource from '../../data/restaurantdb-source';
+import { createRestaurantTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
     return `
-          <h2>Home</h2>
+          <div class="content">
+          <div id="restaurant" class="movies">
+          </div>
+      </div>
         `;
   },
 
   async afterRender() {
-    const restaurant = await RestaurantDbSource.home();
-    console.log(restaurant);
-    // Fungsi ini akan dipanggil setelah render()
+    const restaurant = await RestaurantDbSource.getRestaurant();
+    // console.log(restaurant);
+    const restaurantContainer = document.querySelector('#restaurant');
+    restaurant.forEach((restaurant) => {
+      restaurantContainer.innerHTML += createRestaurantTemplate(restaurant);
+    });
   },
 };
 

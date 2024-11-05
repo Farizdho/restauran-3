@@ -1,47 +1,57 @@
-// import CONFIG from '../../globals/config';
+import CONFIG from '../../globals/config';
 
 const createRestaurantDetailTemplate = (restaurant) => `
-  <h2 class="movie__title">${restaurant.title}</h2>
+  <h2 class="movie__title">${restaurant.name}</h2>
   <img class="movie__poster" src="${
-    CONFIG.BASE_IMAGE_URL + restaurant.poster_path
-  }" alt="${restaurant.title}" />
+    CONFIG.BASE_IMAGE_URL + restaurant.pictureId
+  }" alt="${restaurant.name}" />
   <div class="movie__info">
-    <h3>Information</h3>
-    <h4>Tagline</h4>
-    <p>${restaurant.tagline}</p>
-    <h4>Release Date</h4>
-    <p>${restaurant.release_date}</p>
-    <h4>Duration</h4>
-    <p>${restaurant.runtime} minutes</p>
+    <h4>Description</h4>
+    <p>${restaurant.description}</p>
+    <h4>City</h4>
+    <p>${restaurant.city}</p>
+    <h4>Address</h4>
+    <p>${restaurant.address}</p>
     <h4>Rating</h4>
-    <p>${restaurant.vote_average}</p>
+    <p>${restaurant.rating}</p>
+    <h3>Foods Menu</h3>
+    <span id="food">
+    <p>${restaurant.menus.foods.map((food) => food.name).join(', ')}</p>
+    </span>
+    <h3>Drinks Menu</h3>
+    <span id="drink">
+    <p>${restaurant.menus.drinks.map((drink) => drink.name).join(', ')}</p>
+    </span>
+        
   </div>
   <div class="movie__overview">
-    <h3>Overview</h3>
-    <p>${restaurant.overview}</p>
+    <h3>Review Customer</h3>
+    <p>${restaurant.customerReviews.map((review) => review.name).join(', ')}</p>
+    
+    
   </div>
 `;
 
-const createRestaurantItemTemplate = (restaurant) => `
+const createRestaurantTemplate = (restaurant) => `
   <div class="movie-item">
     <div class="movie-item__header">
-      <img class="movie-item__header__poster" alt="${restaurant.title}"
+      <img class="movie-item__header__poster" alt="${restaurant.name}"
            src="${
-             restaurant.backdrop_path
-               ? CONFIG.BASE_IMAGE_URL + restaurant.backdrop_path
-               : 'https://picsum.photos/id/666/800/450?grayscale'
-           }">
+             restaurant.pictureId
+               ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
+               : 'images/heros/hero-image_2.jpg'
+           }" alt="${restaurant.name}">
       <div class="movie-item__header__rating">
         <p>⭐️<span class="movie-item__header__rating__score">${
-          restaurant.vote_average
+          restaurant.rating
         }</span></p>
       </div>
     </div>
     <div class="movie-item__content">
-      <h3><a href="/#/detail/${restaurant.id}">${restaurant.title}</a></h3>
-      <p>${restaurant.overview}</p>
+      <h3><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h3>
+      <p>${restaurant.city}</p>
     </div>
   </div>
 `;
 
-export { createRestaurantItemTemplate, createRestaurantDetailTemplate };
+export { createRestaurantTemplate, createRestaurantDetailTemplate };
