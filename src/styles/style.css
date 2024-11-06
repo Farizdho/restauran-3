@@ -98,7 +98,7 @@ main {
     Movies
   */
 
-.movies {
+.restaurants {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
@@ -109,22 +109,22 @@ main {
     Movie Item
   */
 
-.movie-item {
+.restaurants-item {
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
 }
 
-.movie-item__header {
+.restaurants-item__header {
   position: relative;
 }
 
-.movie-item .movie-item__header .movie-item__header__poster {
+.restaurants-item .restaurants-item__header .restaurants-item__header__poster {
   width: 100%;
 }
 
-.movie-item .movie-item__header .movie-item__header__rating {
+.restaurants-item .restaurants-item__header .restaurants-item__header__rating {
   position: absolute;
   padding: 8px;
   bottom: 20px;
@@ -134,27 +134,27 @@ main {
   color: white;
 }
 
-.movie-item
-  .movie-item__header
-  .movie-item__header__rating
-  .movie-item__header__rating__score {
+.restaurants-item
+  .restaurants-item__header
+  .restaurants-item__header__rating
+  .restaurants-item__header__rating__score {
   margin-left: 10px;
 }
 
-.movie-item .movie-item__content {
+.restaurants-item .restaurants-item__content {
   padding: 16px;
 }
 
-.movie-item .movie-item__content h3 {
+.restaurants-item .restaurants-item__content h3 {
   margin: 0 0 10px 0;
 }
 
-.movie-item .movie-item__content h3 a {
+.restaurants-item .restaurants-item__content h3 a {
   color: #db0000;
   text-decoration: none;
 }
 
-.movie-item .movie-item__content p {
+.restaurants-item .restaurants-item__content p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -166,7 +166,7 @@ main {
     Movie
   */
 
-.movie {
+.restaurants {
   margin: 0 auto;
   width: 100%;
   max-width: 800px;
@@ -175,12 +175,12 @@ main {
   gap: 18px 16px;
 }
 
-.movie .movie__poster {
+.restaurants .restaurants__poster {
   width: 100%;
   max-width: 400px;
 }
 
-.movie .movie__info h4 {
+.restaurants .restaurants__info h4 {
   margin: 8px 0;
 }
 

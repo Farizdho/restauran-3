@@ -1,11 +1,11 @@
 import CONFIG from '../../globals/config';
 
 const createRestaurantDetailTemplate = (restaurant) => `
-  <h2 class="movie__title">${restaurant.name}</h2>
-  <img class="movie__poster" src="${
+  <h2 class="restaurants__title">${restaurant.name}</h2>
+  <img class="restaurants__poster" src="${
     CONFIG.BASE_IMAGE_URL + restaurant.pictureId
   }" alt="${restaurant.name}" />
-  <div class="movie__info">
+  <div class="restaurants__info">
     <h4>Description</h4>
     <p>${restaurant.description}</p>
     <h4>City</h4>
@@ -40,21 +40,21 @@ const createRestaurantDetailTemplate = (restaurant) => `
 `;
 
 const createRestaurantTemplate = (restaurant) => `
-  <div class="movie-item">
-    <div class="movie-item__header">
-      <img class="movie-item__header__poster" alt="${restaurant.name}"
+  <div class="restaurants-item">
+    <div class="restaurants-item__header">
+      <img class="restaurants-item__header__poster" alt="${restaurant.name}"
            src="${
              restaurant.pictureId
                ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
                : 'images/heros/hero-image_2.jpg'
            }" alt="${restaurant.name}">
-      <div class="movie-item__header__rating">
-        <p>⭐️<span class="movie-item__header__rating__score">${
+      <div class="restaurants-item__header__rating">
+        <p>⭐️<span class="restaurants-item__header__rating__score">${
           restaurant.rating
         }</span></p>
       </div>
     </div>
-    <div class="movie-item__content">
+    <div class="restaurants-item__content">
       <h3><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h3>
       <p>${restaurant.city}</p>
     </div>
