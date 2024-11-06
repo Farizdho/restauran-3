@@ -22,14 +22,21 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <span id="drink">
     <p>${restaurant.menus.drinks.map((drink) => drink.name).join(', ')}</p>
     </span>
-        
+     <div class="review"><h3>Customer Reviews</h3> 
+  ${restaurant.customerReviews
+    .map(
+      (review) => `
+      <p>
+        <span class="name">${review.name}</span> &bull; <span class="date">${review.date}</span>
+      </p>
+      <p>${review.review}</p>
+    `
+    )
+    .join('')}
+</div>  
   </div>
-  <div class="movie__overview">
-    <h3>Review Customer</h3>
-    <p>${restaurant.customerReviews.map((review) => review.name).join(', ')}</p>
-    
-    
-  </div>
+
+ 
 `;
 
 const createRestaurantTemplate = (restaurant) => `
