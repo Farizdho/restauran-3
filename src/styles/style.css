@@ -12,8 +12,8 @@ body {
 }
 
 /*
-    AppBar
-  */
+  AppBar
+*/
 
 .app-bar {
   padding: 8px 16px;
@@ -77,8 +77,8 @@ body {
 }
 
 /*
-    Main Content
-  */
+  Main Content
+*/
 
 main {
   padding: 32px;
@@ -95,8 +95,8 @@ main {
 }
 
 /*
-    Movies
-  */
+  Movies
+*/
 
 .restaurants {
   display: grid;
@@ -106,25 +106,25 @@ main {
 }
 
 /*
-    Movie Item
-  */
+  Movie Item
+*/
 
-.restaurants-item {
+.restaurant-item {
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
 }
 
-.restaurants-item__header {
+.restaurant-item__header {
   position: relative;
 }
 
-.restaurants-item .restaurants-item__header .restaurants-item__header__poster {
+.restaurant-item .restaurant-item__header .restaurant-item__header__poster {
   width: 100%;
 }
 
-.restaurants-item .restaurants-item__header .restaurants-item__header__rating {
+.restaurant-item .restaurant-item__header .restaurant-item__header__rating {
   position: absolute;
   padding: 8px;
   bottom: 20px;
@@ -134,27 +134,27 @@ main {
   color: white;
 }
 
-.restaurants-item
-  .restaurants-item__header
-  .restaurants-item__header__rating
-  .restaurants-item__header__rating__score {
+.restaurant-item
+  .restaurant-item__header
+  .restaurant-item__header__rating
+  .restaurant-item__header__rating__score {
   margin-left: 10px;
 }
 
-.restaurants-item .restaurants-item__content {
+.restaurant-item .restaurant-item__content {
   padding: 16px;
 }
 
-.restaurants-item .restaurants-item__content h3 {
+.restaurant-item .restaurant-item__content h3 {
   margin: 0 0 10px 0;
 }
 
-.restaurants-item .restaurants-item__content h3 a {
+.restaurant-item .restaurant-item__content h3 a {
   color: #db0000;
   text-decoration: none;
 }
 
-.restaurants-item .restaurants-item__content p {
+.restaurant-item .restaurant-item__content p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -163,10 +163,10 @@ main {
 }
 
 /*
-    Movie
-  */
+  Movie
+*/
 
-.restaurants {
+.restaurant {
   margin: 0 auto;
   width: 100%;
   max-width: 800px;
@@ -175,13 +175,31 @@ main {
   gap: 18px 16px;
 }
 
-.restaurants .restaurants-poster {
+.restaurant .restaurant__poster {
   width: 100%;
   max-width: 400px;
 }
 
-.restaurants .restaurants-info h4 {
+.restaurant .restaurant__info h4 {
   margin: 8px 0;
+}
+
+/*
+  Footer
+*/
+
+footer {
+  padding: 16px;
+}
+
+footer p {
+  text-align: center;
+  color: #aaaaaa;
+}
+
+footer p a {
+  color: #db0000;
+  text-decoration: none;
 }
 
 .review p {
@@ -204,21 +222,4 @@ main {
   line-height: 1.6;
   font-size: 1rem;
   color: #555;
-}
-/*
-    Footer
-  */
-
-footer {
-  padding: 16px;
-}
-
-footer p {
-  text-align: center;
-  color: #aaaaaa;
-}
-
-footer p a {
-  color: #db0000;
-  text-decoration: none;
 }
