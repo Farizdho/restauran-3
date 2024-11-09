@@ -175,12 +175,12 @@ main {
   gap: 18px 16px;
 }
 
-.restaurant .restaurant__poster {
+.restaurant .restaurant-poster {
   width: 100%;
   max-width: 400px;
 }
 
-.restaurant .restaurant__info h4 {
+.restaurant .restaurant-info h4 {
   margin: 8px 0;
 }
 
@@ -222,4 +222,23 @@ footer p a {
   line-height: 1.6;
   font-size: 1rem;
   color: #555;
+}
+
+.like {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db0000;
+
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
 }
