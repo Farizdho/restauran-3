@@ -242,3 +242,15 @@ footer p a {
   color: white;
   cursor: pointer;
 }
+
+a {
+  display: inline-block;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+a,
+button {
+  min-width: 44px;
+  min-height: 44px;
+}

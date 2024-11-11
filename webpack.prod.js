@@ -24,6 +24,18 @@ module.exports = merge(common, {
   plugins: [
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('^https://restaurant-api.dicoding.dev/'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'new Date().toISOString()',
+            cacheableResponse: {
+              statuses: [200],
+            },
+          },
+        },
+      ],
     }),
   ],
 });
