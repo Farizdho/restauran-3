@@ -17,6 +17,7 @@ const assetsToCache = [
   './app.bundle.js',
   './app.webmanifest',
   './sw.bundle.js',
+  '.heros/hero-image_1.jpg',
 ];
 
 self.addEventListener('install', (event) => {

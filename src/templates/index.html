@@ -12,10 +12,15 @@
     <link rel="manifest" href="./app.webmanifest" />
     <meta name="theme-color" content="#DB0000" />
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-    <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
     <title>Restaurant PWA</title>
   </head>
   <body>
+    <a href="#mainContent" class="skip-link">Menuju ke konten</a>
     <header class="app-bar">
       <div class="app-bar__menu">
         <button id="hamburgerButton">☰</button>
@@ -26,11 +31,14 @@
       <nav id="navigationDrawer" class="app-bar__navigation">
         <ul>
           <li><a href="/">Home</a></li>
-          <!-- <li><a href="#/detail">Detail</a></li> -->
           <li><a href="#/like">Liked Restaurant</a></li>
+          <li><a href="https://github.com/farizdho">About Us</a></li>
         </ul>
       </nav>
     </header>
+    <section class="hero">
+      <img src="./heros/hero-image_1.jpg" alt="heros" />
+    </section>
     <main id="mainContent"></main>
     <footer>
       <p>

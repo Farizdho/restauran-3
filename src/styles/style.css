@@ -11,10 +11,6 @@ body {
   flex-direction: column;
 }
 
-/*
-  AppBar
-*/
-
 .app-bar {
   padding: 8px 16px;
   background-color: white;
@@ -105,10 +101,6 @@ main {
   margin: 32px 0;
 }
 
-/*
-  Movie Item
-*/
-
 .restaurant-item {
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -158,13 +150,9 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
-
-/*
-  Movie
-*/
 
 .restaurant {
   margin: 0 auto;
@@ -183,10 +171,6 @@ main {
 .restaurant .restaurant-info h4 {
   margin: 8px 0;
 }
-
-/*
-  Footer
-*/
 
 footer {
   padding: 16px;
@@ -253,4 +237,29 @@ a,
 button {
   min-width: 44px;
   min-height: 44px;
+}
+
+.hero {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #bf1722;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
 }
