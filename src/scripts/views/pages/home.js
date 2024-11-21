@@ -6,6 +6,7 @@ const Home = {
     return `
           <div class="content">
           <div id="restaurant" class="restaurants">
+         
           
           </div>
       </div>

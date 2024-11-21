@@ -21,4 +21,12 @@ exports.config = {
     I: './steps_file.js',
   },
   name: 'restauran-e2e',
+  plugins: {
+    retryFailedStep: {
+      enabled: true,
+    },
+    screenshotOnFail: {
+      enabled: true,
+    },
+  },
 };
