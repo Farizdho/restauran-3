@@ -42,6 +42,40 @@ Scenario('liking one restaurant', async ({ I }) => {
   assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
 });
 
+Scenario('unliking one restaurant', async ({ I }) => {
+  I.wait(5);
+  I.see(
+    'Tidak ada restaurant untuk ditampilkan',
+    '#restaurant-item__not__found'
+  );
+  I.amOnPage('/');
+  I.wait(3);
+  I.waitForElement('#restaurant-item');
+  I.seeElement('#restaurant__title a');
+  const firstRestaurant = locate('#restaurant__title a').first();
+  const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
+  I.click(firstRestaurant);
+  I.wait(3);
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+  I.wait(3);
+  I.amOnPage('/#/like');
+  I.wait(3);
+  I.seeElement('#restaurant-item a');
+  const firstRestaurantlike = locate('#restaurant__title a').first();
+  const likedRestaurantTitle = await I.grabTextFrom(firstRestaurantlike);
+  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
+  I.click(firstRestaurantlike);
+  I.wait(3);
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+  I.wait(3);
+  I.amOnPage('/#/like');
+  I.wait(3);
+  I.seeElement('#restaurant-item__not__found');
+  const onFav = await I.grabTextFrom('#restaurant-item__not__found');
+  assert.strictEqual(onFav.trim(), 'Tidak ada restaurant untuk ditampilkan');
+});
 // Scenario('searching restaurants', async ({ I }) => {
 //   I.see(
 //     'Tidak ada restaurant untuk ditampilkan',

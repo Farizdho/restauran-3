@@ -56,7 +56,7 @@ const renderSkeleton = () => {
 };
 
 const createRestaurantTemplate = (restaurant) => `
-  <div class="restaurant-item">
+  <div class="restaurant-item" id="restaurant-item">
     <div class="restaurant-item__header">
       <img class="restaurant-item__header__poster lazyload" alt="${
         restaurant.name
@@ -73,7 +73,7 @@ const createRestaurantTemplate = (restaurant) => `
       </div>
     </div>
     <div class="restaurant-item__content">
-      <h3 class="restaurant__title"><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h3>
+      <h3 class="restaurant__title" id="restaurant__title"><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h3>
       <p>${restaurant.city}</p>
     </div>
   </div>
