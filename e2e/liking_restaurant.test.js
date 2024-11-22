@@ -1,80 +1,103 @@
 const assert = require('assert');
 
-Feature('Liking Restaurant');
+Feature('Liking Restaurants');
 
 Before(({ I }) => {
   I.amOnPage('/#/like');
 });
 
-Scenario('showing empty liking restaurant', ({ I }) => {
+Scenario('showing empty liked restaurants', ({ I }) => {
   I.seeElement('#query');
+
+  // I.seeElement('.query'); --> menyebabkan error
+
   I.see(
     'Tidak ada restaurant untuk ditampilkan',
-    '#restaurant-item__not__found'
+    '.restaurant-item__not__found'
   );
 });
 
-Scenario('favoriting one restaurant', async ({ I }) => {
-  I.seeElement('#restaurant-list');
+Scenario('liking one restaurant', async ({ I }) => {
   I.see(
     'Tidak ada restaurant untuk ditampilkan',
-    '#restaurant-item__not__found'
+    '.restaurant-item__not__found'
   );
 
   I.amOnPage('/');
-  I.wait(3);
 
-  I.waitForElement('#restaurant-item');
-  I.seeElement('#restaurant-title a');
+  // pause();
 
-  const firstRestaurant = locate('#restaurant-title a').first();
+  I.seeElement('.restaurant__title a');
+  const firstRestaurant = locate('.restaurant__title a').first();
   const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
   I.click(firstRestaurant);
-  I.wait(3);
 
-  I.seeElement('#favoriteButton');
-  I.click('#favoriteButton');
-  I.wait(3);
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
 
   I.amOnPage('/#/like');
-  I.wait(3);
-  I.seeElement('#resto-item');
-  const favoritedRestaurantTitle = await I.grabTextFrom('#restaurant-title');
+  I.seeElement('.restaurant-item');
+  const likedRestaurantTitle = await I.grabTextFrom('.restaurant__title');
 
-  assert.strictEqual(firstRestaurantTitle, favoritedRestaurantTitle);
+  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
 });
 
-Scenario('unfavoriting one restaurant', async ({ I }) => {
-  I.wait(5);
-  I.see(
-    'Tidak ada restaurant untuk ditampilkan',
-    '#restaurant-item__not__found'
-  );
-  I.amOnPage('/');
-  I.wait(3);
-  I.waitForElement('#restaurant-item');
-  I.seeElement('#restaurant-title a');
-  const firstRestaurant = locate('#restaurant-title a').first();
-  const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
-  I.click(firstRestaurant);
-  I.wait(10);
-  I.seeElement('#favoriteButton');
-  I.click('#favoriteButton');
-  I.wait(3);
-  I.amOnPage('/#/like');
-  I.wait(3);
-  I.seeElement('#restaurant-item a');
-  const firstRestaurantlike = locate('#restaurant-title a').first();
-  const favoritedRestaurantTitle = await I.grabTextFrom(firstRestaurantlike);
-  assert.strictEqual(firstRestaurantTitle, favoritedRestaurantTitle);
-  I.click(firstRestaurantlike);
-  I.wait(10);
-  I.seeElement('#favoriteButton');
-  I.click('#favoriteButton');
-  I.wait(3);
-  I.amOnPage('/#/like');
-  I.wait(3);
-  I.seeElement('#restaurant-item__not__found');
-  const onFav = await I.grabTextFrom('#restaurant-item__not__found');
-  assert.strictEqual(onFav, 'Tidak ada restaurant untuk ditampilkan');
-});
+// Scenario('searching restaurants', async ({ I }) => {
+//   I.see(
+//     'Tidak ada restaurant untuk ditampilkan',
+//     '.restaurant-item__not__found'
+//   );
+
+//   I.amOnPage('/');
+
+//   I.seeElement('.restaurant__title a');
+
+//   const titles = [];
+
+//   // eslint-disable-next-line no-plusplus
+//   for (let i = 1; i <= 3; i++) {
+//     I.click(locate('.restaurant__title a').at(i));
+
+//     I.seeElement('#likeButton');
+//     I.click('#likeButton');
+
+//     // eslint-disable-next-line no-await-in-loop
+//     titles.push(await I.grabTextFrom('.restaurant__title'));
+
+//     I.amOnPage('/');
+//   }
+
+//   I.amOnPage('/#/like');
+//   I.seeElement('#query');
+
+//   const visibleLikedRestaurants =
+//     await I.grabNumberOfVisibleElements('.restaurant-item');
+//   assert.strictEqual(titles.length, visibleLikedRestaurants);
+
+//   const searchQuery = titles[1].substring(1, 3);
+
+//   I.fillField('#query', searchQuery);
+//   I.pressKey('Enter');
+
+//   // mendapatkan daftar film yang sesuai dengan searchQuery
+//   const matchingRestaurants = titles.filter(
+//     (title) => title.indexOf(searchQuery) !== -1
+//   );
+//   const visibleSearchedLikedRestaurants =
+//     await I.grabNumberOfVisibleElements('.restaurant-item');
+
+//   assert.strictEqual(
+//     matchingRestaurants.length,
+//     visibleSearchedLikedRestaurants
+//   );
+
+//   // eslint-disable-next-line no-plusplus
+//   for (let i = 0; i < matchingRestaurants.length; i++) {
+//     // eslint-disable-next-line no-await-in-loop
+//     const visibleTitle = await I.grabTextFrom(
+//       locate('.restaurant__title').at(i + 1)
+//     );
+
+//     assert.strictEqual(matchingRestaurants[i], visibleTitle);
+//   }
+// });

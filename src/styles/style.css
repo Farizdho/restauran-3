@@ -258,6 +258,7 @@ button {
   color: white;
   padding: 8px;
   z-index: 100;
+  display: none;
 }
 
 .skip-link:focus {
